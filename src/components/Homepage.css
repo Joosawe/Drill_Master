@@ -1,22 +1,55 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background-color: #ffffff;
-    background-image: url(/src/images/20190312-The18-Photo-Best-Soccer-Training-Equipment-For-Players-Coaches.jpg);
+    background-color: #050505;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    
   }
-  .div{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: xx-large;
+  .load{
+    animation: 2s;
+  }
+  .slider{
     background-size: cover;
-    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    animation: slide 40s infinite;
+
   }
-  .nav{
-    height : var(--nav-size);
-    background-color: var(--bg);
-    padding: 0 1rem;
-    border-bottom: var(--border);
+  @keyframes slide{
+    0%{
+      background-image: url(/src/images/5e14563c855cc23d4d6f14f3.jpg);
+    }
+    20%{
+      background-image: url(/src/images/5e14563c855cc23d4d6f14f3.jpg);
+    }
+    20.01%{
+      background-image: url(/src/images/ballinnet.jpg);
+    }
+    40%{
+      background-image: url(/src/images/ballinnet.jpg);
+    }
+    40.01%{
+      background-image: url(/src/images/femalegoalie.jpg);
+    }
+    60%{
+      background-image: url(/src/images/femalegoalie.jpg);
+    }
+    60.1%{
+      background-image: url(/src/images/soccertraining.jpg);
+    }
+    80%{
+      background-image: url(/src/images/soccertraining.jpg);
+    }
+    80.01%{
+      background-image: url(/src/images/photo-1574629810360-7efbbe195018.jpg);
+    }
+    100%{
+      background-image: url(/src/images/photo-1574629810360-7efbbe195018.jpg);
+    }
   }
   * {
     box-sizing: border-box;
@@ -32,10 +65,20 @@ body {
     font-size: xx-large;
   }
   .navbar{
-    max-width: 100%;
-    height: 100%;
+    background:#070707;
+    height: 80px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  .navbar-logo{
+    color:rgb(114, 97, 4);
+    justify-self: start;
+    margin-left: -20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
   }
   .nav-item{
     width: calc(var(--nav-size)*0.8);
@@ -60,6 +103,11 @@ body {
     text-align: center;
     color: white;
   }
+  /* @media screen and (min-width: 390px){
+    h1{
+    font-size: 1rem;
+    }
+  } */
   .p{
     text-align: center;
     color: white;
@@ -79,25 +127,19 @@ body {
     padding: 0.5rem 1.5rem;
     cursor: pointer;
     border-radius: 4px;
-    background-color: #003315;
+    background-color: #000000;
     color: #dfba99;
     border: 1px solid #311902;
     margin: auto;
   }
   
   .btn:hover {
-    background-color:red;
-    border-color: red;
+    background-color: rgb(0, 248, 0);
+    border-color: rgb(0, 248, 0);
+    color: black;
   }
   
-  .btn--alt {
-    background-color: transparent;
-    color: #800040;
-  }
   
-  .btn--alt:hover {
-    background-color: #f8dae9;
-  }
   
   .card {
     background-color: white;

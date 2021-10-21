@@ -30,10 +30,14 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
+      
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           DrillMaster
-          <i class= 'fab fa-firstdraft' />
+          <img src="drillmaster_logo.PNG" alt='brand logo'/>
         </Link> 
+       
+        
+        
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>

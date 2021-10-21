@@ -1,0 +1,81 @@
+#App {
+    font-family: sans-serif;
+    height: 100vh;
+  }
+  
+  #page-wrap {
+    text-align: center;
+    overflow: auto;
+    top: 45%;
+    position: relative;
+  }
+  
+  .bm-item {
+    display: inline-block;
+  
+    /* Our sidebar item styling */
+    text-decoration: none;
+    /*margin-bottom: 10px;*/
+    color: #dfba99;
+    transition: color 0.2s;
+    height: 60px;
+    padding: 0 16px;
+    border-radius: 4px;
+    
+    
+  }
+  
+  .bm-item:hover {
+    color: white;
+    padding: 0 16px;
+    border-radius: 4px;
+  }
+  
+  .bm-burger-button {
+    position:absolute;
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 36px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #000000;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #dfba99;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #000;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.7em;
+    display: flex;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #dfba99;
+    padding: 0 16px;
+    border-radius: 4px;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }

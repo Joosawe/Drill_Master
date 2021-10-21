@@ -6,9 +6,7 @@
     align-items: center;
     font-size: 1.2rem;
   }
-  .logo{
-    background-image: url(/src/images/drillmaster\ logo.PNG);
-  }
+
   .navbar-logo {
     color:rgb(114, 97, 4);
     justify-self: start;
@@ -17,12 +15,12 @@
     text-decoration: none;
     font-size: 2rem;
   }
-  
-  .fa-firstdraft {
-    margin-left: 0.5rem;
-    font-size: 1.6rem;
-    
+  img{ 
+    width :40px;
+    border-radius: 50%;
+   
   }
+  
   
   .nav-menu {
     display: grid;
