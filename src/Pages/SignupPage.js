@@ -1,6 +1,8 @@
-function SignupPage(){
-    return(
-        <div>Signup!</div>
-    );
+import React from "react";
+export default function SignupPage(){
+     return(
+   <div className= "signup">Signup!
+       kjjddldmkkd dk
+   </div>
+ );
 }
-export default SignupPage;

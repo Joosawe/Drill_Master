@@ -4,13 +4,16 @@ function HomePage() {
   let history = useHistory();
   return (
     <>
-    <body className = 'slider'>
+    <div className = 'slider'>
+      <div className= "container">
+      <div className="header">
       <h1>
-        {" "}
         Drill Master <br />
         Take your game to the Next level{" "}
       </h1>
-      <p className="p">
+      </div>
+      <div>
+      <p className="subHeader">
         The training app that presents everything you need to know about the
         game
         <br /> with expert training advice for you to get the edge over the
@@ -21,7 +24,9 @@ function HomePage() {
         <br />
         Join now and start Reaching your goals.
       </p>
-      </body>
+      </div>
+      </div>
+      </div>
     </>
   );
 }
