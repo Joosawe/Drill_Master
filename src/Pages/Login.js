@@ -2,36 +2,31 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-          
+import "./styles/login.css";
 
-
-export default function Signup() {
+export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordconfirmRef = useRef();
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState("false");
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSumbit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-
-    if (passwordRef.current.value !== passwordconfirmRef.current.value) {
-      return setError("Passwords do not match");
-    }
 
     try {
       setError("");
-      setLoading("true");
-      await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/user-profile");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/drills");
     } catch {
-      setError("Failed to create an account");
+      setError("Failed to log in");
     }
 
     setLoading(false);
   }
+
   return (
     <>
       <div className="bg-login">
@@ -48,12 +43,12 @@ export default function Signup() {
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <Card>
               <Card.Body>
-                <h6 className="font-weight-light"> Welcome! </h6>
+                <h6 className="font-weight-light"> Welcome Back! </h6>
                 <h5 className="text-left mb-4 font-weight-bold">
-                let's get started!
+                 Let's get to work
                 </h5>
                 {error && <Alert variant="danger">{error}</Alert>}
-                <Form onSubmit={handleSumbit}>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" ref={emailRef} required />
@@ -62,32 +57,39 @@ export default function Signup() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" ref={passwordRef} required />
                   </Form.Group>
-                  <Form.Group id="password-confirm">
-                    <Form.Label>Password Comfirmation</Form.Label>
-                    <Form.Control
-                      type="password"
-                      ref={passwordconfirmRef}
-                      required
-                    />
-                  </Form.Group>
-                  <div className="w-100 text -center mt-2">
-                    Already a member?
+
+                  <div className="mb-0 w-100 text-left mt- font-weight-light ">
+                    Forgot Your Password?
                     <Link
-                      to="/login"
+                      to="/forgot-password"
                       style={{
                         color: "#000",
                         textDecoration: "none",
                         fontWeight: "bold",
                       }}
                     >
-                      Login here ➟
+                      Create a new one here ➟{" "}
                     </Link>
                   </div>
-                  <Button disable={loading} className="w-100" type="submit">
-                    Sign Up
+
+                  <Button disabled={loading} className="w-100" type="submit">
+                    Log In
                   </Button>
                 </Form>
               </Card.Body>
+              <div className="w-100 text-center mt-2">
+                Need an account?{" "}
+                <Link
+                  to="/signup"
+                  style={{
+                    color: "#000",
+                    textDecoration: "none",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Sign Up
+                </Link>
+              </div>
             </Card>
           </div>
         </Container>
