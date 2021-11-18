@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+=======
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+>>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
 import HomePage from "./components/Homepage";
 import SignupPage from "./Pages/SignupPage";
 import Login from "./Pages/Login";
@@ -12,6 +16,7 @@ import { AuthProvider } from "./Context/AuthContext";
 
 function App() {
   return (
+<<<<<<< HEAD
     <AuthProvider>
       <Router>
         <Switch>
@@ -28,6 +33,15 @@ function App() {
         </Switch>
       </Router>
     </AuthProvider>
+=======
+    <Router>
+      <Sidebar/>
+     <Switch>
+       <Route exact path ='/'  component = {HomePage}/>
+       <Route path ='/signup' component = {SignupPage}/>
+     </Switch>
+     </Router>
+>>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
   );
 }
 

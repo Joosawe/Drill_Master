@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
@@ -94,4 +95,13 @@ export default function Signup() {
       </div>
     </>
   );
+=======
+import React from "react";
+export default function SignupPage(){
+     return(
+   <div className= "signup">Signup!
+       kjjddldmkkd dk
+   </div>
+ );
+>>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
 }
