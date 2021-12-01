@@ -45,7 +45,7 @@ export default function Login() {
               <Card.Body>
                 <h6 className="font-weight-light"> Welcome Back! </h6>
                 <h5 className="text-left mb-4 font-weight-bold">
-                 Let's get to work
+                  Rejoin Your Community
                 </h5>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>

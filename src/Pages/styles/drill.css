@@ -1,0 +1,125 @@
+.Name {
+    padding-bottom: 15%;
+  }
+  h1 {
+    color: black;
+  }
+  h4 {
+    color: gray;
+  }
+  h5 {
+    color: black;
+  }
+  .reference {
+    color: gray;
+  }
+  .neighborhood {
+    color: black;
+  }
+  .logout {
+    padding-top: 10%;
+  }
+  .content {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+  }
+  header {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+  }
+  .results {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    border: 3px solid green;
+  }
+  
+  .cut-text {
+    position: relative;
+    text-transform: uppercase;
+    font-size: extra-large;
+    font-weight: 900;
+    font-family: "Catamaran", sans-serif;
+    font-style: italic;
+    text-align: center;
+  }
+  .about-us {
+    float: right;
+    padding-right: 1%;
+    padding-top: 1%;
+  }
+  
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 35px;
+    height: 15px;
+    top: 50%;
+    padding: 10px;
+    float: left;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #3f3f3f;
+  }
+  
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: #a7a7a7;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #ffffff;
+  }
+  
+  /*
+      Sidebar wrapper styles
+      Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+      */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 50%;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #f8f8f8;
+    padding: 2em 1em 0;
+    font-size: 1.2em;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #ffffff;
+    overflow: hidden;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #ffffff;
+    padding: 1.8em;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  

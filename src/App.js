@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-=======
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
->>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
 import HomePage from "./components/Homepage";
 import SignupPage from "./Pages/SignupPage";
 import Login from "./Pages/Login";
@@ -12,11 +8,14 @@ import UserProfile from "./Pages/UserProfile";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Main from "./components/AboutUs/Main";
 import Drills from "./Pages/Drills";
+import ExpertTips from "./Pages/ExpertTips";
+import Nutrition from "./Pages/Nutrition";
+import Equipment from "./Pages/Equipment";
 import { AuthProvider } from "./Context/AuthContext";
+import contactUs from "./Pages/ContactUs";
 
 function App() {
   return (
-<<<<<<< HEAD
     <AuthProvider>
       <Router>
         <Switch>
@@ -27,21 +26,17 @@ function App() {
           <PrivateRoute path="/drills" component={Drills} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/user-profile" component={UserProfile} />
+          <Route path = "/expertTips" component ={ExpertTips}/>
+          <Route path = "/Nutrition" component ={Nutrition}/>
+          <Route path = "/Equipment" component = {Equipment}/>
+          <Route path = "/contactus" component = {contactUs}/>
+          <Route path = "/drills" component = {Drills}/>
           <Route path="/about-us" component={Main} />
 
           <Route path="*" component={() => "404  NOT FOUND"} />
         </Switch>
       </Router>
     </AuthProvider>
-=======
-    <Router>
-      <Sidebar/>
-     <Switch>
-       <Route exact path ='/'  component = {HomePage}/>
-       <Route path ='/signup' component = {SignupPage}/>
-     </Switch>
-     </Router>
->>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
   );
 }
 

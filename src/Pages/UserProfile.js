@@ -8,9 +8,9 @@ const db = firebase.database();
 
 export default function UserProfile() {
   const { currentUser } = useAuth();
-  const [interest, setInterest] = useState("Park");
-  const [neighborhood, setNeighborhood] = useState("Cambrige");
-  const [explaination, setExplaination] = useState("");
+  const [interest, setInterest] = useState("Stamina");
+  const [position, setPosition] = useState("GoalKeeper");
+  const [motivation, setMotivation] = useState(" ");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const { uid } = useAuth();
@@ -39,9 +39,9 @@ export default function UserProfile() {
                   const newUser = users.push();
                   newUser.set({
                     currentUserID,
-                    neighborhood,
+                    position,
                     interest,
-                    explaination,
+                    motivation,
                     firstname,
                     lastname,
                   });
@@ -70,44 +70,85 @@ export default function UserProfile() {
                     id="exampleFormControlTextarea1"
                   ></Form.Control>
                 </FormGroup>
-                <Form.Group id="Neighborhood">
+                <Form.Group id="position">
                   <Form.Label>Select your Position</Form.Label>
                   <select
                     option
-                    onChange={(e) => setNeighborhood(e.target.value)}
+                    onChange={(e) => setPosition(e.target.value)}
                     class="form-control"
-                    id="Neighborhood"
+                    id="position"
                   >
                     <option
                       required
                       option
-                      onChange={(e) => setNeighborhood(e.target.value)}
+                      onChange={(e) => setPosition(e.target.value)}
                     >
                       Goalkeeper
                     </option>
                     <option
                       option
-                      onChange={(e) => setNeighborhood(e.target.value)}
+                      onChange={(e) => setPosition(e.target.value)}
                     >
-                     Defender
+                      Right Full-back (or Wingback)
                     </option>
                     <option
                       option
-                      onChange={(e) => setNeighborhood(e.target.value)}
+                      onChange={(e) => setPosition(e.target.value)}
                     >
-                     Midfielder
+                      Left Full-back (or Wingback)
                     </option>
                     <option
                       option
-                      onChange={(e) => setNeighborhood(e.target.value)}
+                      onChange={(e) => setPosition(e.target.value)}
                     >
-                     Attacker
+                      Center-back
                     </option>
-                    
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Center back (or sweeper)
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Defensive Midfielder
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Right Midfielder (or Winger)
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Center Midfielder
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Center Forward (or Striker)
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Attacking Midfielder (or Center Forward)
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setPosition(e.target.value)}
+                    >
+                      Left Midfielder (or Winger)
+                    </option>
                   </select>
                 </Form.Group>
                 <Form.Group id="Budget">
-                  <Form.Label>Community Interest</Form.Label>
+                  <Form.Label>Improvement Areas</Form.Label>
                   <select
                     value={interest}
                     onChange={(e) => setInterest(e.target.value)}
@@ -115,38 +156,36 @@ export default function UserProfile() {
                     id="Neighborhood"
                   >
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      
-                      Parks
+                      Pace
                     </option>
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      Trees
+                      Agility
                     </option>
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      Road Work
+                      Stamina
                     </option>
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      Community Centers
+                      Dribbling
                     </option>
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      Transportation
+                      Passing
                     </option>
                     <option onChange={(e) => setInterest(e.target.value)}>
-                      Technological Advances
+                      Trapping
                     </option>
                   </select>
                   <small id="emailHelp" class="form-text text-muted">
-                    We understand there are many of you with multiple interest,
-                    we limit users options to "1" to provide a voice for all our
-                    users.{" "}
+                    We understand there might be multiple areas you want to work
+                    on, you can choose another area after this one is completed.
                   </small>
                 </Form.Group>
                 <FormGroup>
-                  <label for="Text">What is your goal?</label>
+                  <label for="Text">Motiviation</label>
                   <textarea
-                    placeholder="ex: I want to be the first name on the team sheet this coming season"
+                    placeholder="Place a quote that will remind you why you work so hard"
                     required
-                    value={explaination}
-                    onChange={(e) => setExplaination(e.target.value)}
+                    value={motivation}
+                    onChange={(e) => setMotivation(e.target.value)}
                     class="form-control"
                     id="exampleFormControlTextarea1"
                     rows="3"

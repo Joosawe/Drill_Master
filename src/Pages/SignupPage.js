@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-          
-
 
 export default function Signup() {
   const emailRef = useRef();
@@ -51,7 +48,7 @@ export default function Signup() {
               <Card.Body>
                 <h6 className="font-weight-light"> Welcome! </h6>
                 <h5 className="text-left mb-4 font-weight-bold">
-                let's get started!
+                  Join Your Community
                 </h5>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSumbit}>
@@ -95,13 +92,4 @@ export default function Signup() {
       </div>
     </>
   );
-=======
-import React from "react";
-export default function SignupPage(){
-     return(
-   <div className= "signup">Signup!
-       kjjddldmkkd dk
-   </div>
- );
->>>>>>> 7b3cb17355876ebfb8e2e415cb4013a2e437e11d
 }
