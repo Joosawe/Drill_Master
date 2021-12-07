@@ -1,0 +1,15 @@
+.stopwatch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+  .card-log-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 12rem;
+  }
+  

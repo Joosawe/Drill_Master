@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
+.title h1 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+  padding-top: 1rem;
+}
+.title h2,
+.title p {
+  text-align: center;
+}
+.title h2 {
+  margin-top: 60px;
+  font-size: 2.6rem;
+}
+
+/* base styles & title */
+.title {
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  max-width: 960px;
+  margin: 0 auto;
+}

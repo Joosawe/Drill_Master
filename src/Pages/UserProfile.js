@@ -34,7 +34,10 @@ export default function UserProfile() {
                 onSubmit={(e) => {
                   e.preventDefault();
 
-                  const users = db.ref("user");
+                  const users = db
+                    .ref("user")
+                    .child(currentUserID)
+                    .child("Profile");
 
                   const newUser = users.push();
                   newUser.set({

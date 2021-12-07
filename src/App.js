@@ -13,6 +13,7 @@ import Nutrition from "./Pages/Nutrition";
 import Equipment from "./Pages/Equipment";
 import { AuthProvider } from "./Context/AuthContext";
 import contactUs from "./Pages/ContactUs";
+import Log from "./Pages/Log";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path = "/Equipment" component = {Equipment}/>
           <Route path = "/contactus" component = {contactUs}/>
           <Route path = "/drills" component = {Drills}/>
+          <Route path="/log" component={Log} />
           <Route path="/about-us" component={Main} />
 
           <Route path="*" component={() => "404  NOT FOUND"} />
