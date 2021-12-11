@@ -4,9 +4,12 @@ import { useAuth } from "../Context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import firebase from "../firebase";
 import Stopwatch from "../components/Stopwatch";
-import "./styles/log.css";
+import "./styles/signup.css";
 import { auth } from "../firebase";
 
+function refreshPage() {
+  window.location.reload(false);
+}
 const db = firebase.database();
 var today = new Date(),
   todayDate =
@@ -18,84 +21,80 @@ export default function UserProfile() {
   const [additionalComment, setAdditionalComment] = useState("");
   const [date, setDate] = useState(todayDate.toString());
   const [videoName, setVideoName] = useState("");
-  const [trial, setTrial] = useState("");
-  const [trialTwo, setTrialTwo] = useState("");
-  const [trialThree, setTrialThree] = useState("");
+  const [trial, setTrial] = useState(":");
+  const [trialTwo, setTrialTwo] = useState(":");
+  const [trialThree, setTrialThree] = useState(":");
   const { uid } = useAuth();
   const [currentUserID] = useState(uid);
   const history = useHistory();
-  // const db = firebase.database();
-  // const [currentUsernow] = useState(uid);
-  // const usersref = db.ref("user").child(currentUsernow).child("log");
-  // var useruid = auth.currentUser.uid;
+  const db = firebase.database();
+  const usersref = db.ref("user").child(currentUserID).child("Log");
+  var useruid = auth.currentUser.uid;
 
-  // usersref.on("value", gotData, errData);
+  usersref.on("value", gotData, errData);
 
-  // window.onload = function () {
-  //   if (!window.location.hash) {
-  //     window.location = window.location + "#Welcome";
-  //     window.location.reload();
-  //   }
-  // };
+;
+ 
+ 
+ 
+  function gotData(data) {
+    var alluserspec = document.querySelectorAll(".alluserspec");
+    for (var i = 0; i < alluserspec.length; i++) {
+      alluserspec[i].remove();
+    }
 
-  // function gotData(data) {
-  //   var alluserspec = document.querySelectorAll(".alluserspec");
-  //   for (var i = 0; i < alluserspec.length; i++) {
-  //     alluserspec[i].remove();
-  //   }
+    // console.log(data.val());
+    var userspec = data.val();
+    var keys = Object.keys(userspec);
 
-  //   // console.log(data.val());
-  //   var userspec = data.val();
-  //   var keys = Object.keys(userspec);
-
-  //   for (var j = 0; j < keys.length; j++) {
-  //     var k = keys[j];
-  //     var date = userspec[k].date;
-  //     var trial = userspec[k].trial;
-  //     var trialTwo = userspec[k].trialTwo;
-  //     var trialThree = userspec[k].trialThree;
-  //     var videoName = userspec[k].videoName;
-  //     console.log("current user id", currentUserID);
-  //     console.log("database current uid", useruid);
-  //     if (currentUserID === useruid) {
-  //       try {
-  //         document.getElementById("date").innerHTML = date;
-  //         document.getElementById("trial").innerHTML = trial;
-  //         document.getElementById("trialTwo").innerHTML = trialTwo;
-  //         document.getElementById("trialThree").innerHTML = trialThree;
-  //         document.getElementById("videoName").innerHTML = videoName;
-  //       } catch {
-  //         console.log("cannot retrieve data");
-  //       }
-  //     }
-  //   }
-  // }
-  // function errData(err) {
-  //   console.log("Error");
-  //   console.log(err);
-  // }
-
+    for (var j = 0; j < keys.length; j++) {
+      var k = keys[j];
+      var trial = userspec[k].trial;
+      var trialTwo = userspec[k].trialTwo;
+      var trialThree = userspec[k].trialThree;
+      var videoName = userspec[k].videoName;
+      if (currentUserID === useruid) {
+        try {
+          document.getElementById("videoName").innerHTML = videoName;
+          document.getElementById("trial").innerHTML = trial;
+          document.getElementById("trialTwo").innerHTML = trialTwo;
+          document.getElementById("trialThree").innerHTML = trialThree;
+        } catch {
+          console.log("cannot retrieve data");
+        }
+      }
+    }
+  }
+  function errData(err) {
+    console.log("Error");
+    console.log(err);
+  }
 
   return (
     <>
-
       <div className="stopWatch">
         <Stopwatch />
       </div>
-        {/* <h1 className="videoName2"></h1>
-        <h2 id="date"></h2>
-        <h5 className="text-center mb-4">
-          <p className="Name">
-            <h1 id="trial"></h1>
-            <h1 id="trialTwo"></h1>
-            <h1 id="trialThree"></h1>
-          </p>
-        </h5> */}
-      <div className="card-log-time">
-        <div className="w-100" style={{ maxWidth: "400px" }}>
+
+      <h1 className="videoName2"></h1>
+      <h5 className="text-center mb-4">
+      <button className="recdbtn" onClick={refreshPage}>View last recorded Drill</button>
+      
+      </h5>
+      <h5 className="text-center mb-4">
+        Last Recorded Drill:
+        <p className="Name">
+          <h1 id="videoName"></h1>
+          <h1 id="trial"></h1>
+          <h1 id="trialTwo"></h1>
+          <h1 id="trialThree"></h1>
+        </p>
+      </h5>
+      <div>
+        <div className="card-div" style={{ maxWidth: "800px" }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Video Assesment</h2>
+              <h2 className="text-center mb-4">Drill Log</h2>
               <Form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -103,7 +102,7 @@ export default function UserProfile() {
                   const users = db
                     .ref("user")
                     .child(currentUserID)
-                    .child("log");
+                    .child("Log");
 
                   const newUser = users.push();
                   newUser.set({
@@ -119,9 +118,9 @@ export default function UserProfile() {
                 }}
               >
                 <FormGroup>
-                  <Form.Label for="Text">Name of the Video</Form.Label>
+                  <Form.Label for="Text">Drill Name</Form.Label>
                   <Form.Control
-                    placeholder="Enter Video Name"
+                    placeholder="Enter Drill Name"
                     required
                     value={videoName}
                     onChange={(e) => setVideoName(e.target.value)}
@@ -209,7 +208,7 @@ export default function UserProfile() {
                   </select>
                 </Form.Group>
                 <FormGroup>
-                  <label for="Text">Additional Comments</label>
+                  <label for="Text">We love to hear your feedback</label>
                   <textarea
                     placeholder="additional Comments"
                     required
@@ -219,7 +218,7 @@ export default function UserProfile() {
                     rows="2"
                   ></textarea>
                 </FormGroup>
-                <div className="w-100 text-center mt-2">
+                <div>
                   <Button className="w-100" type="submit">
                     Log Drill
                   </Button>

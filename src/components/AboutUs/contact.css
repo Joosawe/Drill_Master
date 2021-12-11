@@ -16,6 +16,9 @@ ul,
 li {
   font-family: sans-serif;
 }
+.h2{
+  line-height: 2;
+}
 h1{
   color: white;
 }
@@ -36,7 +39,6 @@ ul.header li a {
   display: inline-block;
 }
 .content {
-  background-color: #fff;
   width: 80%;
   padding: 10px;
 }
@@ -51,4 +53,10 @@ ul.header li a {
   float: right;
   padding-right: 3%;
 }
-
+.dms{
+  color: white;
+}
+.abt-us{
+  font-weight: bolder;
+  color: #fff;
+}

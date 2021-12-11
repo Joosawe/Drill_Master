@@ -23,7 +23,7 @@ export default function Equipment() {
     <Sidebar/>
       <Layout>
         <h1 className="cut-text">Equipments</h1>
-        <div>
+        <div className="div2">
           A soccer player feels comfortable wearing soccer equipment in the
           field. Performing well and keeping safe while playing soccer depends
           mostly on soccer gear you should use. The equipment a soccer player

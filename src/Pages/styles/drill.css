@@ -8,8 +8,9 @@
 .Name {
   padding-bottom: 15%;
 }
-h1 {
-  color: black;
+.h1 {
+  color: white;
+  text-align: center;
 }
 h4 {
   color: gray;
@@ -26,11 +27,24 @@ h5 {
 .logout {
   padding-top: 10%;
 }
-
+.div1{
+  color: white;
+}
+.div2{
+  color: white;
+}
+.logout{
+  align-items: center;
+  justify-content: center;
+}
 
 .log {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 200px;
+}
+.users{
+  color:white;
+  text-align: center;
 }

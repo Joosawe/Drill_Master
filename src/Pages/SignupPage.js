@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import "./styles/signup.css";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -43,13 +44,13 @@ export default function Signup() {
       justify-content-center"
           style={{ minHeight: "100vh" }}
         >
-          <div className="w-100" style={{ maxWidth: "400px" }}>
+          <div className="w-10" style={{ maxWidth: "400px" }}>
             <Card>
               <Card.Body>
                 <h6 className="font-weight-light"> Welcome! </h6>
-                <h5 className="text-left mb-4 font-weight-bold">
+                <div className="text-left mb-4 font-weight-bold">
                   Join Your Community
-                </h5>
+                </div>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSumbit}>
                   <Form.Group id="email">
@@ -68,17 +69,13 @@ export default function Signup() {
                       required
                     />
                   </Form.Group>
-                  <div className="w-100 text -center mt-2">
+                  <div>
                     Already a member?
                     <Link
                       to="/login"
-                      style={{
-                        color: "#000",
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Login here ➟
+                
+                    > <button className="btn"> Login here</button>
+                      
                     </Link>
                   </div>
                   <Button disable={loading} className="w-100" type="submit">

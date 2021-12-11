@@ -35,7 +35,7 @@ const DUMMY_DATA = [
     id: "m3",
     title: "Use your Brain",
     image:
-      "https://danabrahams.com/wp-content/uploads/2015/07/b140208-be-a-quicker-thinker-stage-one.jpg",
+      "https://cdn.soccerladuma.co.za/cms2/image_manager/uploads/News/689639/7/default.jpg",
     description:
       "Learn to kick around your target. Don’t shoot towards your defender. Passing or dribbling the ball laterally or even backward can be a better choice if it maintains possession of the ball. Possession of the ball is key to controlling the pace and direction of the game. Also,Passing is important, so is to know when to take your shot. Don’t hesitate to fire a shot at goal if you feel an opportunity. Take your best shot and shoot in the back of the net. ",
   },

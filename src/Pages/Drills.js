@@ -11,19 +11,23 @@ import Sidebar from "../components/Sidebar";
 export default function Drills() {
   const [selectedLink, setSelectedLink] = useState(null);
 
-
   return (
-    <div className="drills">
-      <Sidebar/>
-      <Title />
-      <DrillsGrid setSelectedLink={setSelectedLink} />
-      {selectedLink && (
-        <Modal selectedLink={selectedLink} setSelectedLink={setSelectedLink} />
-      )}
-      <div className="log">
-        <Link to="/log">
-          <Button>Log your Drills</Button>
-        </Link>
+    <div>
+      <Sidebar />
+      <div className="drills">
+        <Title />
+        <DrillsGrid setSelectedLink={setSelectedLink} />
+        {selectedLink && (
+          <Modal
+            selectedLink={selectedLink}
+            setSelectedLink={setSelectedLink}
+          />
+        )}
+        <div className="log">
+          <Link to="/log">
+            <Button className="w-100">Log your Drills</Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

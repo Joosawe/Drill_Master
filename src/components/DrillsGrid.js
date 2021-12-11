@@ -29,7 +29,7 @@ const DrillsGrid = ({ setSelectedLink }) => {
               transition={{ delay: 1 }}
             />
             <h3>{doc.title}</h3>
-            <p>{doc.description}</p>
+            <p className="par">{doc.description}</p>
           </motion.div>
         ))}
     </div>

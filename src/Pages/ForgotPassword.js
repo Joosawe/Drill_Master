@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
+import "./styles/signup.css"
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -18,7 +19,7 @@ export default function ForgotPassword() {
       setError("");
       setLoading(true);
       await resetPassword(emailRef.current.value);
-      setMessage("Check your Email");
+      setMessage("Check your Email for password reset link");
     } catch {
       setError("Failed to reset password");
     }
@@ -34,7 +35,7 @@ export default function ForgotPassword() {
       justify-content-center"
         style={{ minHeight: "100vh" }}
       >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
+        <div style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
               <h2 className="text-center mb-4">Password Reset</h2>
@@ -49,7 +50,7 @@ export default function ForgotPassword() {
                   Reset Password
                 </Button>
               </Form>
-              <div className="w-100 text-center mt-2">
+              <div >
                 Need an account?{" "}
                 <Link
                   to="/signup"
@@ -59,10 +60,12 @@ export default function ForgotPassword() {
                     fontWeight: "bold",
                   }}
                 >
+                  <button className="w-100"> 
                   Sign Up ➟
+                  </button>
                 </Link>
               </div>
-              <div className="w-100 text-center mt-3">
+              <div >
                 Have an account?
                 <Link
                   to="/login"
@@ -71,9 +74,9 @@ export default function ForgotPassword() {
                     textDecoration: "none",
                     fontWeight: "bold",
                   }}
-                >
-                  {" "}
-                  Login ➟
+                ><button className="w-100"> 
+                Login ➟
+                </button>
                 </Link>
               </div>
             </Card.Body>

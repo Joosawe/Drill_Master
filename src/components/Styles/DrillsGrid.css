@@ -6,13 +6,10 @@
   padding: 1rem;
   margin-top: 2rem;
 }
-p {
-  position: relative;
-  margin: -2rem 0 1rem 1rem;
-  padding: 1rem;
-  background: rgba(white, 0.8);
+.par{
+  color: white;
 }
-h3 {
+.img-grid h3 {
   position: relative;
   margin: -2rem 0 1rem 1rem;
   padding: 1rem;
@@ -25,13 +22,13 @@ h3 {
     font-size: 80%;
     justify-content: center;
   }
-  p {
+  .img-grid p {
     position: relative;
     margin: -3rem 0 2rem 1rem;
     padding: 1rem;
     background: rgba(white, 0.8);
   }
-  h3 {
+  .img-grid h3 {
     position: relative;
     margin: -3rem 0 2rem 1rem;
     padding: 1rem;

@@ -9,8 +9,64 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.w-100{
+  align-items: center;
+  font-family: sans-serif;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: black;
+  color: #0ff;
+  border: 1px solid #0ff;
+  margin: auto;
+}
+.welcome{
+  height: 100px;
+  width: 100%;
+  line-height: 2.7;
+}
 .about-us {
   float: right;
   padding-right: 1%;
   padding-top: 1%;
+}
+.stopwatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 2rem;
+}
+.card-log-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-top: 12rem;
+}
+.card-div{
+  align-items: center;
+  font-family: sans-serif;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: auto;
+}
+.btn{
+  align-items: center;
+  font-family: sans-serif;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: black;
+  color: #0ff;
+  border: 1px solid #0ff;
+  margin: auto;
+}
+.recdbtn{
+  align-items: center;
+  color: #0ff;
+  background-color: black;
+  justify-content: center;
+  
 }

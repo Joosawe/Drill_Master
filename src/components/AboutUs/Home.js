@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-
+import "./contact.css";
 class Home extends Component {
   render() {
     return (
       <div>
-        <h2>Welcome</h2>
-        <p>
+        <h2 className="abt-us">Welcome</h2>
+        <p className="dms">
           Drillmaster is the application of the future designed to bring the
           best out of athletes. With our expanded knowledge of the game, and
           familiarity with various athletes, amateur and professional, we are

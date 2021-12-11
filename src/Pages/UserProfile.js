@@ -3,6 +3,7 @@ import { Form, Card, Button, FormGroup, Container } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
 import { useHistory } from "react-router-dom";
 import firebase from "../firebase";
+import "./styles/signup.css"
 
 const db = firebase.database();
 
@@ -13,21 +14,30 @@ export default function UserProfile() {
   const [motivation, setMotivation] = useState(" ");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [satisfactoryQuestion, setSatisfactoryQuestion] = useState("");
+  const [additionalComment, setAdditionalComment] = useState("");
+  const [date, setDate] = useState('');
+  const [videoName, setVideoName] = useState("");
+  const [trial, setTrial] = useState(":");
+  const [trialTwo, setTrialTwo] = useState(":");
+  const [trialThree, setTrialThree] = useState(":");
+  
   const { uid } = useAuth();
   const [currentUserID] = useState(uid);
   let history = useHistory();
 
   return (
     <>
+    <div className="bg-login">
       <Container
         className="d-flex align-items-center 
       justify-content-center"
         style={{ minHeight: "100vh" }}
       >
-        <div className="w-100" style={{ maxWidth: "400px" }}>
+        <div style={{maxWidth: "800px"  }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Welcome</h2>
+              <h2 className="welcome">Welcome</h2>
 
               <h6 className="text-center mb-4">{currentUser.email} </h6>
               <Form
@@ -48,7 +58,25 @@ export default function UserProfile() {
                     firstname,
                     lastname,
                   });
+
+                  const logs = db
+                    .ref("user")
+                    .child(currentUserID)
+                    .child("Log");
+
+                  const newLog = logs.push();
+                  newLog.set({
+                    additionalComment,
+                    date,
+                    satisfactoryQuestion,
+                    trial,
+                    trialTwo,
+                    trialThree,
+                    videoName,
+                  });
                   history.push("/drills");
+
+                  
                 }}
               >
                 <FormGroup id="firstName">
@@ -183,7 +211,7 @@ export default function UserProfile() {
                   </small>
                 </Form.Group>
                 <FormGroup>
-                  <label for="Text">Motiviation</label>
+                  <label for="Text">Motivation</label>
                   <textarea
                     placeholder="Place a quote that will remind you why you work so hard"
                     required
@@ -194,7 +222,7 @@ export default function UserProfile() {
                     rows="3"
                   ></textarea>
                 </FormGroup>
-                <div className="w-100 text-center mt-2">
+                <div >
                   <Button className="w-100" type="submit">
                     Complete profile
                   </Button>
@@ -204,6 +232,7 @@ export default function UserProfile() {
           </Card>
         </div>
       </Container>
+      </div>
     </>
   );
 }

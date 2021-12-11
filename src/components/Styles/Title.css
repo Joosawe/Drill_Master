@@ -1,7 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
 .title h1 {
-  color: var(--primary);
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: normal;
@@ -9,13 +18,35 @@
 }
 .title h2,
 .title p {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
   text-align: center;
 }
 .title h2 {
   margin-top: 60px;
   font-size: 2.6rem;
 }
-
+.title h6{
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+    text-align: center;
+}
 /* base styles & title */
 .title {
   font-family: "Noto Serif";

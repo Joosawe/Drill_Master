@@ -1,0 +1,35 @@
+form {
+  margin: 30px auto 10px;
+  text-align: center;
+}
+.titlediv{
+  color: white;
+}
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+.upload {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #0ff;
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: #0ff;
+  font-weight: bold;
+  font-size: 24px;
+}
+.upload:hover {
+  background: #0ff;
+  color: white;
+}
+.output {
+  height: 60px;
+  font-size: 0.8rem;
+}
+.error {
+  color: var(--error);
+}

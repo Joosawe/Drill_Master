@@ -14,6 +14,7 @@ import Equipment from "./Pages/Equipment";
 import { AuthProvider } from "./Context/AuthContext";
 import contactUs from "./Pages/ContactUs";
 import Log from "./Pages/Log";
+import Admin from "./Pages/Admin";
 
 function App() {
   return (
@@ -21,18 +22,17 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/map" component={Map} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={Login} />
-          <PrivateRoute path="/drills" component={Drills} />
+          <Route path="/drills" component={Drills} />
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/user-profile" component={UserProfile} />
           <Route path = "/expertTips" component ={ExpertTips}/>
           <Route path = "/Nutrition" component ={Nutrition}/>
           <Route path = "/Equipment" component = {Equipment}/>
-          <Route path = "/contactus" component = {contactUs}/>
           <Route path = "/drills" component = {Drills}/>
           <Route path="/log" component={Log} />
+          <Route path="/admin" component={Admin} />
           <Route path="/about-us" component={Main} />
 
           <Route path="*" component={() => "404  NOT FOUND"} />

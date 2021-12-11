@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { projectStorage, projectFirestore, timestamp, auth } from "../firebase";
+import { projectStorage, projectFirestore, timestamp } from "../firebase";
+import { Form, Card, FormGroup } from "react-bootstrap";
+import { render } from "@testing-library/react";
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
@@ -12,7 +14,6 @@ const useStorage = (file) => {
     // references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection("Drills");
-
     storageRef.put(file).on(
       "state_changed",
       (snap) => {
@@ -24,16 +25,16 @@ const useStorage = (file) => {
       },
       async () => {
         const url = await storageRef.getDownloadURL();
+        const title = storageRef.name.split(".")[0];
         const createdAt = timestamp();
         await collectionRef.add({ url, createdAt, title, description });
-        setUrl(url);
         setTitle(title);
-        setDescription(description);
+        setUrl(url);
+        setDescription("hello");
       }
     );
   }, [file]);
-
-  return { description, title, progress, url, error };
+  return { title, progress, url, error, description };
 };
 
 export default useStorage;

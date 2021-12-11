@@ -1,8 +1,7 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Tooltip } from "react-bootstrap";
 import { useAuth } from "../Context/AuthContext";
-import { useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import firebase from "../firebase";
 import "./Styles/Sidebar.css";
 import { bubble as Menu } from "react-burger-menu";
@@ -14,10 +13,9 @@ export default function Sidebar() {
   const history = useHistory();
   const db = firebase.database();
   const [currentUser] = useState(uid);
-  const usersref = db.ref("user").child(currentUser).child("Profile");
-  var useruid = auth.currentUser.uid;
-
-  usersref.on("value", gotData, errData);
+  console.log(currentUser);
+  const usersref = db.ref("user");
+  const [users, setUsers] = useState([]);
 
   window.onload = function () {
     if (!window.location.hash) {
@@ -26,44 +24,29 @@ export default function Sidebar() {
     }
   };
 
-  function gotData(data) {
-    var alluserspec = document.querySelectorAll(".alluserspec");
-    for (var i = 0; i < alluserspec.length; i++) {
-      alluserspec[i].remove();
-    }
-
-    // console.log(data.val());
-    var userspec = data.val();
-    var keys = Object.keys(userspec);
-
-    for (var j = 0; j < keys.length; j++) {
-      var k = keys[j];
-      var firstname = userspec[k].firstname;
-      var lastname = userspec[k].lastname;
-      var position = userspec[k].position;
-      var interest = userspec[k].interest;
-      var motivation = userspec[k].motivation;
-      var currentUserID = userspec[k].currentUserID;
-      console.log("current user id", currentUserID);
-      console.log("database current uid", useruid);
-      if (currentUserID === useruid) {
-        try {
-          document.getElementById("firstname").innerHTML = firstname;
-          document.getElementById("lastname").innerHTML = lastname;
-          document.getElementById("position").innerHTML = position;
-          document.getElementById("interest").innerHTML = interest;
-          document.getElementById("motivation").innerHTML = motivation;
-        } catch {
-          console.log("cannot retrieve data");
+  useEffect(() => {
+    usersref.on("value", (users) => {
+      let userArray = [];
+      users.forEach((user) => {
+        var userspec = user.val().Profile;
+        var keys = Object.keys(userspec);
+        console.log(keys);
+        var k = keys[0];
+        let newUser = {
+          firstname: userspec[k].firstname,
+          lastname: userspec[k].lastname,
+          currentUserID: userspec[k].currentUserID,
+          motivation: userspec[k].motivation,
+          interest: userspec[k].interest,
+          position: userspec[k].position,
+        };
+        if (newUser.currentUserID === currentUser) {
+          userArray.push(newUser);
         }
-      }
-    }
-  }
-
-  function errData(err) {
-    console.log("Error");
-    console.log(err);
-  }
+      });
+      setUsers(userArray);
+    });
+  }, []);
 
   async function handleLogout() {
     setError("");
@@ -75,23 +58,31 @@ export default function Sidebar() {
       setError("Failed to log out");
     }
   }
-  return(
-      <div className="sidebar">
+
+  return (
+    <div className="sidebar">
       <Menu>
         <h4 className="text-center mb-4">Welcome</h4>
         <h2 className="text-center mb-4">
-          <p className="Name">
-            <h1 id="firstname"></h1>
-            <h1 id="lastname"></h1>
-          </p>
+          <div>
+            {users.map((user) => {
+              return (
+                <div>
+                  <p>
+                    {user.firstname} {user.lastname}
+                  </p>
+
+                  <h6 className="reference">Your Position:</h6>
+                  <h5 >{user.position}</h5>
+                  <h6 className="reference">Focus Area of Improvement:</h6>
+                  <h5 >{user.interest}</h5>
+                  <h6 className="reference">Motivational Quote:</h6>
+                  <h5 >{user.motivation}</h5>
+                </div>
+              );
+            })}
+          </div>
         </h2>
-        <h6 className="reference">Your Position:</h6>
-        <h5 id="position"></h5>
-        <h6 className="reference">Focus Area of Improvement:</h6>
-        <h5 id="interest"></h5>
-        <h6 className="reference">Motivational Quote:</h6>
-        <h5 id="motivation"></h5>
-        
         <a className="menu-item" href="/expertTips">
           Expert Tips
         </a>
@@ -113,5 +104,6 @@ export default function Sidebar() {
           </Button>
         </div>
       </Menu>
-      </div>
-  )}
+    </div>
+  );
+}

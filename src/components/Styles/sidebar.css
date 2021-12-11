@@ -1,33 +1,67 @@
 .sidebar {
   font-family: "Noto Serif";
   color: var(--secondary);
-  max-width: 960px;
-  margin: 0 auto;
+  
 }
 
 .Name {
   padding-bottom: 15%;
 }
+/*p{
+  color: white;
+}*/
 h1 {
-  color: black;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+h3{
+  color: white;
 }
 h4 {
-  color: gray;
+  color: white;
 }
 h5 {
-  color: black;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
 }
+
 .sidebar a{
   text-decoration: none;
-  color: black;
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
   padding-top: 10%;
   font-weight: bold;
 }
 a:hover{
-  background-color: rgb(0, 248, 0);
+  background-color: #0ff;
+  color: black;
 }
 .reference {
-  color: gray;
+  color: white;
 }
 .neighborhood {
   color: black;
@@ -87,7 +121,7 @@ header {
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a7a7a7;
+ color: #fff
 }
 
 /* Position and sizing of clickable cross button */
@@ -112,14 +146,14 @@ header {
 
 /* General sidebar styles */
 .bm-menu {
-  background: #f8f8f8;
+  background: black;
   padding: 2em 1em 0;
   font-size: 1.2em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #ffffff;
+  fill: #2d968d;
   overflow: hidden;
 }
 

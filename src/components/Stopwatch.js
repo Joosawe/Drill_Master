@@ -1,6 +1,7 @@
 import React from "react";
 import StopwatchDisplay from "./StopwatchDisplay.js";
 
+
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
@@ -59,22 +60,24 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <div className={"stopwatch"}>
-        <h2 ref="header">
-          Stopwatch<br></br>
-        </h2>
+        <h3 className="h2">
+          Stopwatch 
+        </h3>
 
         {this.state.running === false && (
-          <button onClick={this.start}>START</button>
+          <div>
+          <button className="recdbtn" onClick={this.start}>START</button>
+          </div>
         )}
         {this.state.running === true && (
-          <button onClick={this.stop}>STOP</button>
+          <button className="recdbtn" onClick={this.stop}>STOP</button>
         )}
         <StopwatchDisplay
           ref="display"
           {...this.state}
           formatTime={this.formatTime}
         />
-        <button onClick={this.reset}>RESET</button>
+        <button className="recdbtn" onClick={this.reset}>RESET</button>
       </div>
     );
   }
