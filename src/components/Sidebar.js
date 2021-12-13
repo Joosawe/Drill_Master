@@ -94,6 +94,9 @@ export default function Sidebar() {
         <a className="menu-item" href="/Equipment">
           Equipment
         </a>
+        <a className="menu-item" href="/log">
+         Drill Logs
+        </a>
         <a className="menu-item" href="/drills">
           Back to Drills
         </a>

@@ -20,7 +20,7 @@ export default function UserProfile() {
   const [satisfactoryQuestion, setSatisfactoryQuestion] = useState("5");
   const [additionalComment, setAdditionalComment] = useState("");
   const [date, setDate] = useState(todayDate.toString());
-  const [videoName, setVideoName] = useState("");
+  const [videoName, setVideoName] = useState("Speed Improvement");
   const [trial, setTrial] = useState(":");
   const [trialTwo, setTrialTwo] = useState(":");
   const [trialThree, setTrialThree] = useState(":");
@@ -33,10 +33,6 @@ export default function UserProfile() {
 
   usersref.on("value", gotData, errData);
 
-;
- 
- 
- 
   function gotData(data) {
     var alluserspec = document.querySelectorAll(".alluserspec");
     for (var i = 0; i < alluserspec.length; i++) {
@@ -78,8 +74,9 @@ export default function UserProfile() {
 
       <h1 className="videoName2"></h1>
       <h5 className="text-center mb-4">
-      <button className="recdbtn" onClick={refreshPage}>View last recorded Drill</button>
-      
+        <button className="recdbtn" onClick={refreshPage}>
+          View last recorded Drill
+        </button>
       </h5>
       <h5 className="text-center mb-4">
         Last Recorded Drill:
@@ -117,16 +114,48 @@ export default function UserProfile() {
                   history.push("/drills");
                 }}
               >
-                <FormGroup>
-                  <Form.Label for="Text">Drill Name</Form.Label>
-                  <Form.Control
-                    placeholder="Enter Drill Name"
-                    required
+                <Form.Group id="videoName">
+                  <Form.Label>Drill Name</Form.Label>
+                  <select
+                    option
                     value={videoName}
                     onChange={(e) => setVideoName(e.target.value)}
                     class="form-control"
-                  ></Form.Control>
-                </FormGroup>
+                    id="videoName"
+                  >
+                    <option
+                      required
+                      option
+                      onClick={(e) => setVideoName(e.target.value)}
+                    >
+                      Speed Improvement
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setVideoName(e.target.value)}
+                    >
+                      Intermediate Speed Drill
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setVideoName(e.target.value)}
+                    >
+                      Change Pace Stop and Go
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setVideoName(e.target.value)}
+                    >
+                      Learn to be Agile
+                    </option>
+                    <option
+                      option
+                      onChange={(e) => setVideoName(e.target.value)}
+                    >
+                      Dribbling drills
+                    </option>
+                  </select>
+                </Form.Group>
                 <FormGroup id="Date">
                   <Form.Label for="Text">Date</Form.Label>
                   <Form.Control
